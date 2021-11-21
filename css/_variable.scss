@@ -1,0 +1,55 @@
+//Light Theme
+:root {
+  --checkBackground: linear-gradient(
+    45deg,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  --font_size: 18px;
+  --font_family: "Josefin Sans", sans-serif;
+  --box-shadow: hsl(0, 0%, 0%, 0.1);
+  --BrightBlue: hsl(220, 98%, 61%);
+  --switch-bg: url("../images/icon-moon.svg");
+  --bg-img: url("../images/bg-mobile-light.jpg");
+  --input-bg: hsl(0, 0%, 100%);
+  --text-color: hsl(240, 8%, 24%);
+  --Very_Light_Gray: hsl(0, 0%, 98%);
+  --Very_Dark_Grayish_Blue: hsl(235, 19%, 35%);
+  --Dark_Grayish_Blue: hsl(236, 9%, 61%);
+  --Light_Grayish_Blue: hsl(252, 9%, 73%);
+  --Very_Light_Grayish_Blue: hsl(236, 33%, 92%);
+}
+
+//Dark Theme
+
+[data-theme="dark"] {
+  --switch-bg: url("../images/icon-sun.svg");
+  --bg-img: url("../images/bg-mobile-dark.jpg");
+  --input-bg: hsl(237, 14%, 26%);
+  --text-color: hsl(236, 9%, 61%);
+  --Very_Light_Gray: hsl(235, 21%, 11%);
+  --Very_Dark_Grayish_Blue: hsl(0, 0%, 98%);
+  --Dark_Grayish_Blue: hsl(234, 11%, 52%);
+  --Light_Grayish_Blue: hsl(233, 14%, 35%);
+  --Very_Light_Grayish_Blue: hsl(235, 19%, 35%);
+}
+
+//Mixin codes
+
+@mixin space-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin space-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin space-around() {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

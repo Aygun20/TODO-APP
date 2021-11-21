@@ -1,0 +1,17 @@
+@media only screen and (min-width: 576px) {
+  :root {
+    --bg-img: url("../images/bg-desktop-light.jpg");
+  }
+  [data-theme="dark"] {
+    --bg-img: url("../images/bg-desktop-dark.jpg");
+  }
+  .card h1 {
+    font-size: 3.6rem;
+  }
+  body {
+    max-width: 70% !important;
+  }
+  .filter button {
+    padding-right: 1rem;
+  }
+}

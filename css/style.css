@@ -1,0 +1,495 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+:root {
+  --checkBackground: linear-gradient(
+    45deg,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  --font_size: 18px;
+  --font_family: "Josefin Sans", sans-serif;
+  --box-shadow: hsl(0, 0%, 0%, 0.1);
+  --BrightBlue: hsl(220, 98%, 61%);
+  --switch-bg: url("../images/icon-moon.svg");
+  --bg-img: url("../images/bg-mobile-light.jpg");
+  --input-bg: hsl(0, 0%, 100%);
+  --text-color: hsl(240, 8%, 24%);
+  --Very_Light_Gray: hsl(0, 0%, 98%);
+  --Very_Dark_Grayish_Blue: hsl(235, 19%, 35%);
+  --Dark_Grayish_Blue: hsl(236, 9%, 61%);
+  --Light_Grayish_Blue: hsl(252, 9%, 73%);
+  --Very_Light_Grayish_Blue: hsl(236, 33%, 92%);
+}
+
+[data-theme="dark"] {
+  --switch-bg: url("../images/icon-sun.svg");
+  --bg-img: url("../images/bg-mobile-dark.jpg");
+  --input-bg: hsl(237, 14%, 26%);
+  --text-color: hsl(236, 9%, 61%);
+  --Very_Light_Gray: hsl(235, 21%, 11%);
+  --Very_Dark_Grayish_Blue: hsl(0, 0%, 98%);
+  --Dark_Grayish_Blue: hsl(234, 11%, 52%);
+  --Light_Grayish_Blue: hsl(233, 14%, 35%);
+  --Very_Light_Grayish_Blue: hsl(235, 19%, 35%);
+}
+
+@media only screen and (min-width: 576px) {
+  :root {
+    --bg-img: url("../images/bg-desktop-light.jpg");
+  }
+  [data-theme="dark"] {
+    --bg-img: url("../images/bg-desktop-dark.jpg");
+  }
+  .card h1 {
+    font-size: 3.6rem;
+  }
+  body {
+    max-width: 70% !important;
+  }
+  .filter button {
+    padding-right: 1rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  body {
+    max-width: 50% !important;
+  }
+  .filter button {
+    padding-right: 2rem;
+  }
+}
+
+/* RESETS */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  position: relative;
+}
+
+html,
+body {
+  min-height: 100%;
+  font-size: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+/* BODY */
+body {
+  font: var(--font_size) var(--font_family);
+  background: var(--Very_Light_Gray) var(--bg-img) no-repeat 0% 0%/100vw 30rem;
+  padding-top: 8rem;
+  max-width: 85%;
+  margin: auto;
+}
+
+/* INPUT AND BUTTON */
+input,
+button {
+  font: var(--font_family);
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+label {
+  display: none;
+}
+
+/* For Light and Dark Mood */
+.toggle-container input#switch {
+  opacity: 0;
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  top: -3rem;
+}
+
+.toggle-container .img {
+  background-image: var(--switch-bg);
+  width: 3rem;
+  height: 3rem;
+  background-repeat: no-repeat;
+}
+
+/* ALL ARE CARDS  */
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: var(--input-bg);
+  padding: 1.9rem 2rem;
+  gap: 2rem;
+}
+
+/* HEADER'S CARD */
+header.card {
+  background: transparent;
+  padding: 0;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+header.card h1 {
+  color: #fff;
+  letter-spacing: 1.4rem;
+  font-weight: 700;
+  font-size: 2.7rem;
+}
+
+/* CHECKBOX CONTAINER AND FIELD */
+.check-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.1rem solid var(--Light_Grayish_Blue);
+  border-radius: 50%;
+  position: relative;
+}
+
+.check-container .cb-input {
+  -webkit-transform: scale(1.8);
+          transform: scale(1.8);
+  opacity: 0;
+}
+
+.check-container .check {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* CHECKED CARD */
+.cb-input:checked + .check {
+  background: url("../images/icon-check.svg"), var(--checkBackground);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ADD CARD */
+.add {
+  margin: 4rem 0 2.5rem 0;
+  border-radius: 0.5rem;
+}
+
+.add .check-container {
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+
+.add .check-container #addBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: var(--text-color);
+  font-size: var(--font_size);
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.check-container:hover {
+  background: var(--BrightBlue);
+}
+
+.check-container:hover #addBtn {
+  color: #fff;
+}
+
+.text-container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.text-container .textInput {
+  width: 100%;
+  padding: 0.7rem 0;
+  color: var(--text-color);
+}
+
+.text-container .textInput::-webkit-input-placeholder {
+  color: var(--Light_Grayish_Blue);
+}
+
+.text-container .textInput:-ms-input-placeholder {
+  color: var(--Light_Grayish_Blue);
+}
+
+.text-container .textInput::-ms-input-placeholder {
+  color: var(--Light_Grayish_Blue);
+}
+
+.text-container .textInput::placeholder {
+  color: var(--Light_Grayish_Blue);
+}
+
+/* TODOS CONTAINER */
+.todos > * {
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+}
+
+.todos .card[draggable] {
+  cursor: move;
+}
+
+.todos .card:first-child {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.todos > * + * {
+  border-top: 0.1rem solid var(--Very_Light_Grayish_Blue);
+}
+
+.item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: var(--text-color);
+}
+
+.todos {
+  -webkit-box-shadow: 0 0 2rem 0.3rem var(--box-shadow);
+          box-shadow: 0 0 2rem 0.3rem var(--box-shadow);
+}
+
+/* COMPLETED ITEM */
+.todos .card.checked .item {
+  text-decoration: line-through;
+  color: var(--Dark_Grayish_Blue);
+  -webkit-text-decoration-color: var(--Dark_Grayish_Blue);
+          text-decoration-color: var(--Dark_Grayish_Blue);
+}
+
+/* CLEAR CONTAINER */
+.clear {
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+.todos .card:hover .clear {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* status CONTAINER */
+.status {
+  border-radius: 0 0 0.5rem 0.5rem;
+  border-top: 0.2rem solid var(--Very_Light_Grayish_Blue);
+  font-size: 1.5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.status * {
+  color: var(--Dark_Grayish_Blue);
+}
+
+body.light .status {
+  -webkit-box-shadow: 0 1rem 2rem -0.4rem var(--box-shadow);
+          box-shadow: 0 1rem 2rem -0.4rem var(--box-shadow);
+}
+
+/* details */
+.detail:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.detail button:hover {
+  color: var(--Very_Dark_Grayish_Blue);
+}
+
+/* FILTER BUTTONS */
+.filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: 700;
+}
+
+.filter *:hover {
+  color: var(--Very_Dark_Grayish_Blue);
+}
+
+.filter .on {
+  color: var(--BrightBlue);
+}
+
+/* FOOTER */
+footer {
+  margin: 4rem 0;
+  text-align: center;
+  color: var(--Light_Grayish_Blue);
+}
+
+/* JAVASCRIPT FUNCTIONS - STYLES */
+/* FILTER TODOS */
+.todos.active .card.checked,
+.todos.completed .card {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+  padding: 0;
+  border: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.completed .card.checked {
+  opacity: 1;
+  padding: 1.9rem 2rem;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  pointer-events: all;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.todos.completed > .card.checked ~ .card.checked {
+  border-top: 0.1rem solid var(--Very_Light_Grayish_Blue);
+}
+
+/* FALL ANIMATION */
+.todos .card.fall {
+  pointer-events: none;
+  -webkit-animation: fall 0.2s forwards ease;
+          animation: fall 0.2s forwards ease;
+}
+
+@-webkit-keyframes fall {
+  0% {
+    -webkit-transform: translateX(20%);
+            transform: translateX(20%);
+    opacity: 0.5;
+  }
+  50% {
+    -webkit-transform: translateX(25%) rotateZ(40deg);
+            transform: translateX(25%) rotateZ(40deg);
+    opacity: 0.3;
+  }
+  100% {
+    -webkit-transform: translateX(30%) rotateZ(90deg);
+            transform: translateX(30%) rotateZ(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fall {
+  0% {
+    -webkit-transform: translateX(20%);
+            transform: translateX(20%);
+    opacity: 0.5;
+  }
+  50% {
+    -webkit-transform: translateX(25%) rotateZ(40deg);
+            transform: translateX(25%) rotateZ(40deg);
+    opacity: 0.3;
+  }
+  100% {
+    -webkit-transform: translateX(30%) rotateZ(90deg);
+            transform: translateX(30%) rotateZ(90deg);
+    opacity: 0;
+  }
+}
+
+/* DRAG AND DROP */
+.todos .card.dragging {
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 576px) {
+  .status {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    gap: 5rem 2rem;
+  }
+  .status .filter {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1/3;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    position: relative;
+  }
+  .status .filter::before {
+    content: "";
+    position: absolute;
+    height: 1rem;
+    background-color: var(--Very_Light_Gray);
+    top: -3rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

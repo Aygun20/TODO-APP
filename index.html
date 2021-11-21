@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TodoApp</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <header class="card">
+    <h1>TODO</h1>
+    <div class="toggle-container">
+      <div class="img"></div>
+      <input type="checkbox" id="switch" name="theme" />
+    </div>
+  </header>
+
+  <main>
+    <div class="card add">
+      <div class="check-container">
+        <button id="addBtn">+</button>
+      </div>
+      <div class="text-container">
+        <label for="addText"></label>
+        <input type="text" class="textInput" placeholder="Create a new todo..." spellcheck="false" autocomplete="off"
+          id="addText" />
+      </div>
+    </div>
+    <ul class="todos"></ul>
+    <div class="card status">
+      <p class="detail"><span id="items-left">0</span> items left</p>
+      <div class="filter">
+        <button id="all" class="on">All</button>
+        <button id="active">Active</button>
+        <button id="completed">Completed</button>
+      </div>
+      <div class="detail">
+        <button id="clear-completed">Clear Completed</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Drag and drop to reorder list</p>
+  </footer>
+
+  <script src="./js/scripts.js"></script>
+  <script src="./js/darkmode.js"></script>
+</body>
+
+</html>
